@@ -1,0 +1,28 @@
+
+// createTodoList.prototype.add = function(descript) {
+//       var item = {description: descript, completed: false}
+//       this.todoListArray.push(item)
+//     };
+
+// createTodoList.prototype.list = function() {
+//       console.log(this.todoListArray)
+//       this.todoListArray
+//     };
+
+// createTodoList.prototype.indexOf = function(item) {
+//       // console.log(this.todoListArray.indexOf(item))
+//       this.todoListArray.indexOf(item)
+//     };
+
+// createTodoList.prototype.remove = function(index) {
+//       delete this.todoListArray[index]
+//     };
+
+// createTodoList.prototype.get = function(index) {
+//       // console.log(this.todoListArray[index])
+//       this.todoListArray[index]
+//     };
+
+// createTodoList.prototype.complete = function(index) {
+//       this.todoListArray[index]["completed"] = true
+//     };
