@@ -44,9 +44,9 @@ groceryList.add('cheese');
 groceryList.add('milk');
 
 // tasks is now an array of Task objects
-// groceryList.tasks //-> [Task, Task, Task]
+groceryList.tasks //-> [Task, Task, Task]
 
-// groceryList.list();
+groceryList.list();
 //> Task {id: 1, description: 'bread', completed: false}
 //> Task {id: 2, description: 'cheese', completed: false}
 //> Task {id: 3, description: 'milk', completed: false}
@@ -63,7 +63,7 @@ breadTask.completed //-> false
 // This should complete the task
 breadTask.complete();
 
-// groceryList.list();
+groceryList.list();
 //> Task {id: 1, description: 'bread', completed: true}
 //> Task {id: 2, description: 'cheese', completed: false}
 //> Task {id: 3, description: 'milk', completed: false}
