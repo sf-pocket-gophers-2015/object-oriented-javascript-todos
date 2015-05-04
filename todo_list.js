@@ -1,10 +1,75 @@
-var newTodoList = function() {
-	// ???
+var Task = function(todoList, info) {
+  this.todoList = todoList;
+  this.id = (this.todoList.tasks.length + 1)
+  this.description = info;
+  this.completed = false;
+};
+
+Task.prototype.complete = function() {
+  this.completed = true;
+};
+
+Task.prototype.remove = function(){
+  var location = this.todoList.tasks.indexOf(this)
+  this.todoList.tasks.splice(location, 1)
+};
+
+
+////////////////
+
+var TodoList = function() {
+  this.tasks = [];
+};
+
+
+TodoList.prototype.add = function(info){
+  this.tasks.push(new Task(this, info));
+};
+
+TodoList.prototype.list = function() {
+  for (var i = 0; i < this.tasks.length; i++){
+    console.log(this.tasks[i]);
+  };
 };
 
 
 
 // Driver code
 
+var groceryList = new TodoList();
+groceryList.add('bread');
+groceryList.add('cheese');
+groceryList.add('milk');
 
-var todoList = newTodoList();
+// tasks is now an array of Task objects
+console.log(groceryList.tasks); //-> [Task, Task, Task]
+
+groceryList.list();
+//> Task {id: 1, description: 'bread', completed: false}
+//> Task {id: 2, description: 'cheese', completed: false}
+//> Task {id: 3, description: 'milk', completed: false}
+
+
+// getting a task object
+var breadTask = groceryList.tasks[0];
+
+breadTask.id //-> 1 (some unique numerical ID)
+breadTask.description //-> 'bread'
+breadTask.completed //-> false
+
+
+// This should complete the task
+breadTask.complete();
+
+groceryList.list();
+//> Task {id: 1, description: 'bread', completed: true}
+//> Task {id: 2, description: 'cheese', completed: false}
+//> Task {id: 3, description: 'milk', completed: false}
+
+
+// This should remove the task from the todo list
+breadTask.remove();
+
+groceryList.list();
+//> Task {id: 2, description: 'cheese', completed: false}
+//> Task {id: 3, description: 'milk', completed: false}
