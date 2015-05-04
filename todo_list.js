@@ -27,10 +27,6 @@ Task.prototype.remove = function(){
   console.log(this.parent.tasks.splice(this.id-1,1))
 }
 
-// Driver code
-
-var todoList = new TodoList();
-
 // Note we are using a JavaScript constructor now.
 var groceryList = new TodoList();
 groceryList.add('bread');
