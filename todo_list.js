@@ -1,16 +1,17 @@
 var TodoList = function() {
   this.tasks = [];
-  this.add = function(item) {
-    task = new Task((this.tasks.length + 1), item, this)
-    this.tasks.push(task)
-  };
-  this.list = function(){
-    for (var i = 0; i < this.tasks.length; i++){
-      console.log(this.tasks[i])
-    };
-  };
 };
 
+TodoList.prototype.list = function(){
+  for (var i = 0; i < this.tasks.length; i++){
+  console.log(this.tasks[i])
+    };
+  };
+
+TodoList.prototype.add = function(item){
+  task = new Task((this.tasks.length + 1), item, this)
+  this.tasks.push(task)
+};
 
 var Task = function(id, description, which_list){
   this.id = id;
