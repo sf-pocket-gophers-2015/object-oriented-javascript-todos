@@ -28,12 +28,12 @@ TodoList.prototype = {
 
   remove_task: function(task) {
     var task_index;
-    for(var i=0; i<this.tasks; i++) {
+    for(var i=0; i<this.tasks; i++) {   //find the index of the task to be deleted
       if (this.tasks[i].id = task.id) {
         task_index = i;
       }
     }
-    this.tasks.splice(task_index, 1);
+    this.tasks.splice(task_index, 1);   //delete the task from our list
   }
 };
 
@@ -60,7 +60,7 @@ groceryList.add('milk');
 // tasks is now an array of Task objects
 groceryList.tasks //-> [Task, Task, Task]
 
-//groceryList.list();
+groceryList.list();
 
 //> Task {id: 1, description: 'bread', completed: false}
 //> Task {id: 2, description: 'cheese', completed: false}
@@ -77,7 +77,7 @@ breadTask.completed //-> false
 // This should complete the task
 breadTask.complete();
 
-//groceryList.list();
+groceryList.list();
 //> Task {id: 1, description: 'bread', completed: true}
 //> Task {id: 2, description: 'cheese', completed: false}
 //> Task {id: 3, description: 'milk', completed: false}
