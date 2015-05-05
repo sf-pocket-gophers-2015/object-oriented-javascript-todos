@@ -16,9 +16,10 @@ TodoList.prototype.add = function(item){
 var Task = function(id, description, which_list){
   this.id = id;
   this.description = description;
-  this.completed = false;
   this.which_list = which_list;
 }
+
+Task.prototype.completed = false
 
 Task.prototype.complete = function(){
   this.completed = true
