@@ -1,7 +1,7 @@
 var TodoList = function() {
   this.tasks = [];
   this.add = function(item) {
-    task = new Task((this.tasks.length + 1), item)
+    task = new Task((this.tasks.length + 1), item, this)
     this.tasks.push(task)
   };
   this.list = function(){
@@ -12,15 +12,22 @@ var TodoList = function() {
 };
 
 
-var Task = function(id, description){
+var Task = function(id, description, which_list){
   this.id = id;
   this.description = description;
   this.completed = false;
+  this.which_list = which_list;
 }
 
 Task.prototype.complete = function(){
   this.completed = true
 }
+
+Task.prototype.remove = function(){
+  var index = this.id - 1
+  console.log(this.which_list.tasks.splice(index, 1))
+};
+
 
 // Drive code
 
@@ -55,8 +62,8 @@ groceryList.list();
 //> Task {id: 1, description: 'bread', completed: true}
 //> Task {id: 2, description: 'cheese', completed: false}
 //> Task {id: 3, description: 'milk', completed: false}
-/*
 
+console.log(""); console.log("");
 // This should remove the task from the todo list
 breadTask.remove();
 
@@ -66,4 +73,4 @@ groceryList.list();
 
 
 
-*/
+
