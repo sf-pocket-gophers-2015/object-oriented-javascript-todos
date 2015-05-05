@@ -7,7 +7,6 @@ TodoList.prototype.add = function(item){
 };
 
 var counter = 1;
-// why shouldn't this start at 0
 
 var Task = function(description, parent){
   this.id = counter++;
