@@ -3,14 +3,17 @@ var TodoList = function(){
 };
 
 TodoList.prototype.add = function(item){
-  this.tasks.push(new Task(item,this.tasks.length + 1, this))
+  this.tasks.push(new Task(item, this))
 };
 
-var Task = function(description, id, parent){
-  this.id = id;
+var counter = 1;
+// why shouldn't this start at 0
+
+var Task = function(description, parent){
+  this.id = counter++;
   this.description = description;
   this.completed = false;
-  this.parent = parent
+  this.parent = parent;
 }
 
 TodoList.prototype.list = function(){
@@ -24,7 +27,8 @@ Task.prototype.complete = function(){
 };
 
 Task.prototype.remove = function(){
-  console.log(this.parent.tasks.splice(this.id-1,1))
+  var index = this.parent.tasks.indexOf(this)
+  console.log(this.parent.tasks.splice(index,1))
 }
 
 // Note we are using a JavaScript constructor now.
