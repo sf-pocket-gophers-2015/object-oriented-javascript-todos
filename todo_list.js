@@ -27,12 +27,7 @@ TodoList.prototype = {
   },
 
   remove_task: function(task) {
-    var task_index;
-    for(var i=0; i<this.tasks; i++) {   //find the index of the task to be deleted
-      if (this.tasks[i].id = task.id) {
-        task_index = i;
-      }
-    }
+    task_index = this.tasks.indexOf(task);
     this.tasks.splice(task_index, 1);   //delete the task from our list
   }
 };
